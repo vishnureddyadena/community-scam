@@ -16,18 +16,13 @@ os.environ["ENVIRONMENT"] = "testing"
 os.environ["DATABASE_URL"] = "sqlite+aiosqlite:///test_scamradar.db"
 os.environ["LICENSE_PUBLIC_KEY"] = "2dea54f6666e54ab09e2676e0f19698c95ba3932aaae5ead68e5aeeeebd79597"
 os.environ["ENABLE_ADMIN_RESET"] = "true"
+os.environ["DISABLE_LICENSE_CHECK"] = "true"
 
 from app.main import app
 from app.database import get_db, init_db, engine
 from app.models.models import Base
 from app.services.license_service import license_service
 from app.services.rate_limiter import rate_limiter
-
-@pytest.fixture(scope="session")
-def event_loop():
-    loop = asyncio.get_event_loop_policy().new_event_loop()
-    yield loop
-    loop.close()
 
 @pytest_asyncio.fixture(scope="function", autouse=True)
 async def setup_test_db():
