@@ -6,6 +6,7 @@ import {
   Shield,
   User,
   ShieldAlert,
+  ShieldCheck,
   CheckCircle2,
   X,
   Maximize2,

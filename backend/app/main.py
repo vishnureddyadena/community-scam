@@ -1,6 +1,13 @@
 import os
-from contextlib import asynccontextmanager
+import sys
 from pathlib import Path
+
+# Ensure backend directory is in sys.path regardless of where uvicorn is launched from
+backend_dir = str(Path(__file__).resolve().parent.parent)
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
+from contextlib import asynccontextmanager
 import json
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
