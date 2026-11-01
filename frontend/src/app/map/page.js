@@ -272,7 +272,7 @@ export default function RadarMapInternalPage() {
           <div className="p-4 grid grid-cols-2 gap-3 border-b border-[#0A0A0A]">
             <div className="p-3 rounded-[12px] border border-[#0A0A0A] bg-[#F7F7F2]">
               <div className="text-[11px] font-bold uppercase tracking-wider opacity-70">
-                Total 7D
+                Total count
               </div>
               <div className="text-2xl font-black text-[#E5201B] mt-1">
                 {totalReports}
